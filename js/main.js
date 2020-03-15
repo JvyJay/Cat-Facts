@@ -1,10 +1,15 @@
-// Fetching from cat-facts API
-const proxy = 'https://cors-anywhere.herokuapp.com/';
-const url = 'https://cat-fact.herokuapp.com/facts/random';
-fetch(proxy + url)
+// Fetching from Dog API
+const url = 'https://dog.ceo/api/breeds/image/random';
+fetch(url, {
+  method: 'GET',
+  headers: {
+    Accept: 'application/json'
+  }
+})
   .then(res => {
-    console.log(res);
-    res.json();
+    res.json().then(json => {
+      console.log(json);
+    });
   })
   .catch(() => {
     console.log('Error in fetching data');
